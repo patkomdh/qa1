@@ -45,6 +45,20 @@ public class JunitTest extends ConfigJunit {
 
     }
 
+
+    @DisplayName("Zadanie1")
+    @Test
+
+    public void zadanieTest() {
+        String resultString = "Wordpress powers 34% of the internet";
+        String expectedString = "Wordpress powers [number]% of the internet";
+        assertTrue(resultString.startsWith("wordpress powers"));
+
+
+    }
+
+
+
     @Tag("second")
     @Test
     public void secondTest() {
