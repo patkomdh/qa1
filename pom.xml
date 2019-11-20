@@ -45,31 +45,30 @@
                 <version>5.5.2</version>
                 <scope>test</scope>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
                 <version>3.141.59</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-api -->
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-api</artifactId>
                 <version>3.141.59</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
             <dependency>
                 <groupId>io.github.bonigarcia</groupId>
                 <artifactId>webdrivermanager</artifactId>
-                <version>3.7.1</version>
+                <version>3.6.1</version>
             </dependency>
-
-
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>27.1-jre</version>
             </dependency>
+
 
         </dependencies>
     </dependencyManagement>
@@ -123,6 +122,6 @@
             </plugin>
         </plugins>
     </build>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+
 
 </project>
