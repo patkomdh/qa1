@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.net.MalformedURLException;
@@ -19,9 +20,9 @@ public class ConfigFrontend {
     String fireFoxPath;
     {
         try {
-//            chromePath = Paths.get(getClass().getClassLoader().getResource("drivers/chromedriver.exe")
+//            chromePath = Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe")
 //                    .toURI()).toFile().getAbsolutePath();
-            fireFoxPath = Paths.get(getClass().getClassLoader().getResource("drivers/geckodriver.exe")
+            fireFoxPath = Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe")
                     .toURI()).toFile().getAbsolutePath();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -38,14 +39,16 @@ public class ConfigFrontend {
     public void setUpEach() throws MalformedURLException {
         setupSystemProperties();
 
-        driver = new FirefoxDriver();
+//        driver = new ChromeDriver();
+//        driver = new FirefoxDriver();
+
+        if(Configuration.BROWSER.equals("chrome")) {
+            driver = new ChromeDriver();
+        } else {
+            driver = new FirefoxDriver();
+        }
 
         setupDriver();
-    }
-
-    @AfterEach
-    public void tearDownEach() {
-        driver.quit();
     }
 
     private void setupSystemProperties() {
@@ -57,6 +60,11 @@ public class ConfigFrontend {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+    }
+
+    @AfterEach
+    public void tearDownEach() {
+        driver.quit();
     }
 
     private void setUpRemote() {
